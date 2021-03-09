@@ -5,20 +5,12 @@ const routes: Routes = [
    
   {
     path: '',
-    redirectTo: 'inicio',
+    redirectTo: 'welcome',
     pathMatch: 'full'
   },
   {
     path: 'inicio',
     loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'type-login',
-    loadChildren: () => import('./pages/type-login/type-login.module').then( m => m.TypeLoginPageModule)
   },
   {
     path: 'sign-in-client',
@@ -31,6 +23,35 @@ const routes: Routes = [
   {
     path: 'log-in',
     loadChildren: () => import('./pages/log-in/log-in.module').then( m => m.LogInPageModule)
+  },
+  {
+    path: 'welcome',
+    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
+  },
+  {
+    path: 'tabs-seller',
+    loadChildren: () => import('./pages/tabs-seller/tabs-seller.module').then( m => m.TabsSellerPageModule)
+  },
+  
+  {
+    path: 'seller-profile',
+    loadChildren: () => import('./pages/seller-profile/seller-profile.module').then( m => m.SellerProfilePageModule)
+  },
+  {
+    path: 'client-profile',
+    loadChildren: () => import('./pages/client-profile/client-profile.module').then( m => m.ClientProfilePageModule)
+  },
+  {
+    path: 'inicio-client',
+    loadChildren: () => import('./pages/inicio-client/inicio-client.module').then( m => m.InicioClientPageModule)
+  },
+  {
+    path: 'my-store',
+    loadChildren: () => import('./pages/my-store/my-store.module').then( m => m.MyStorePageModule)
+  },
+  {
+    path: 'orders',
+    loadChildren: () => import('./pages/orders/orders.module').then( m => m.OrdersPageModule)
   },
 ];
 

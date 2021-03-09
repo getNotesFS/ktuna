@@ -1,9 +1,64 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>log-in</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header titulo="Iniciar Sesión"></app-header>
 
-<ion-content>
+
+<ion-content class="my-background">
+    <section class="container">
+        <div class="content" class="ion-padding">
+            <h4>Comencemos...</h4>
+            <br>
+
+            <ion-list>
+
+                <ion-label>
+                    Correo
+                </ion-label>
+                <ion-item>
+                    <ion-label>
+                        <ion-icon name="mail-outline"></ion-icon>
+                    </ion-label>
+                    <ion-input placeholder="martin@gmail.com" type="mail"></ion-input>
+                </ion-item>
+                <br>
+                <ion-label>
+                    Contraseña
+                </ion-label>
+                <ion-item>
+                    <ion-label>
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                    </ion-label>
+                    <ion-input placeholder="123456" type="password"></ion-input>
+                </ion-item>
+
+                <br>
+                <br>
+                <div class="btn-align-center">
+                    <ion-button color="dark" (click)="loginUser()">
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                        <ion-label slot="start">Iniciar Sesión</ion-label>
+                    </ion-button>
+                </div>
+
+                <br>
+                <br>
+                <section class="justify-content-center">
+                    <p>También puedes iniciar sesión con</p>
+                    <div class="btn-social">
+                        <ion-button color="dark" (click)="loginUser()">
+                            <ion-icon name="logo-google"></ion-icon>
+                        </ion-button>
+                        <ion-button color="dark" (click)="loginUser()">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </ion-button>
+                    </div>
+                </section>
+
+                <section class="txt-log">
+                    <p>¿Aún no tienes una cuenta? <b><a href="/welcome">Registrarse</a></b></p>
+                </section>
+            </ion-list>
+
+        </div>
+
+    </section>
 
 </ion-content>

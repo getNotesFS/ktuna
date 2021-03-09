@@ -1,0 +1,32 @@
+.container, .txt-log {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+
+  font-family: "Raleway";
+  margin-top: 20%;
+}
+.pg-welcome h1 {
+  font-size: 24px;
+}
+.pg-welcome p {
+  padding: 15px;
+  font-size: 12px;
+}
+.pg-welcome .logo-welcome {
+  max-width: 200px;
+  display: block;
+  padding: 15px;
+}
+
+.btn-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.btn-welcome ion-button {
+  width: 60% !important;
+}
