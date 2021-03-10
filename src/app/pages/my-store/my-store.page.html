@@ -1,9 +1,68 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>my-store</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header2 titulo="Mi Tienda"></app-header2>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <!-- HEAD -->
+  <div class="container pg-dashboard">
+
+    <div class="img-cont-tienda">
+      <img src="../../../assets/avatar.jpg" />
+    </div>
+
+    <!-- Search br -->
+    <ion-searchbar></ion-searchbar>
+  </div>
+  <!-- Options -->
+  <section class="ion-padding">
+    <ion-button size="small" class="naranja btn-txt-small">Ropa y Calzado</ion-button>
+    <ion-button size="small" class="marron btn-txt-small">Artesanía</ion-button>
+    <ion-button size="small" class="amarillo btn-txt-small">Alimentos</ion-button>
+    <ion-button size="small" class="azul btn-txt-small">Otros</ion-button>
+
+  </section>
+  <!-- Options -->
+  <section class="ion-padding">
+    <div class="content-horizontal">
+      <div class="action-button2">
+        <ion-button color="success">
+          <ion-icon slot="start" name="add-outline"></ion-icon> Añadir
+        </ion-button> 
+      </div>
+      <div class="action-share">
+        <ion-button fill="clear" size="large">
+          <ion-icon  name="share-social-outline"></ion-icon> 
+        </ion-button> 
+  
+      </div>
+    </div>
+  
+  </section>
+
+  <!-- TIopp -->
+  <section class="ion-padding my-store">
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let image of [1,2,3,4,5]">
+          
+          <div class="img-wrapper" [style.background-image]="'url(assets/avatar.jpg)'">
+          </div>
+          <ion-card-header>
+            <h6>22,00$</h6>
+            <ion-card-title>Pinturas Klm #{{ card }}</ion-card-title>
+          </ion-card-header>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-card>
+
+      
+      
+
+    </ion-card>
+  </section>
+
+ 
 
 </ion-content>

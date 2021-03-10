@@ -1,9 +1,46 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>orders</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header2 titulo="Órdenes"></app-header2>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <ion-list class="order-list">
+
+    <ion-item>
+      <div class="cont-etiqueta">
+        <span class="etiqueta-orden pendiente">Pendiente</span>
+
+      </div>
+      <ion-avatar slot="start">
+        <img src="../../../assets/avatar.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h5>Fabricio</h5>
+        <hr>
+        <span class="space-between">
+          <p>25/02/2020</p>
+          <a href="#">Detalles</a>
+        </span>
+      </ion-label>
+
+    </ion-item>
+    <ion-item>
+      <div class="cont-etiqueta">
+        <span class="etiqueta-orden entregado">Entregado</span>
+
+      </div>
+      <ion-avatar slot="start">
+        <img src="../../../assets/avatar.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h5>Fabricio</h5>
+        <hr>
+        <span class="space-between">
+          <p>25/02/2020</p>
+          <a href="#">Detalles</a>
+        </span>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
+
 
 </ion-content>

@@ -42,10 +42,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/client-profile/client-profile.module').then( m => m.ClientProfilePageModule)
   },
   {
-    path: 'inicio-client',
-    loadChildren: () => import('./pages/inicio-client/inicio-client.module').then( m => m.InicioClientPageModule)
-  },
-  {
     path: 'my-store',
     loadChildren: () => import('./pages/my-store/my-store.module').then( m => m.MyStorePageModule)
   },

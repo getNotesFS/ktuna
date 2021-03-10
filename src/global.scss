@@ -36,3 +36,130 @@
     max-width: 100px;
     padding: 15px;
   }
+
+
+  //COLORES
+  .naranja{
+    --background: #ea4335!important;
+  }
+  .amarillo{
+    --background: #FA8F21!important;
+  }
+  .marron{
+    --background: #925020!important;
+  }
+  .azul{
+    --background: #4285F4!important;
+  }
+  .btn-txt-small{
+      font-size: 10px!important;
+  }
+
+  .top-tienda{
+   
+    header{ 
+    padding: 15px 0px;
+       span{
+           
+           float: right;
+       }
+    }
+  }
+ .img-cont{
+     padding: 5px;
+ }
+ .img-cont-tienda > img{
+  max-width: 100px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+.img-cont > img{
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.slide-top-tienda p {
+    font-size: 0.7rem; 
+    padding-top: 5px;
+    margin: 0px;
+}
+.slide-top-tienda h6 {
+    margin: 0px;
+}
+ion-card-title{
+    font-size: 0.7rem;
+}
+.slide-top-tienda  ion-card-header{
+    padding: 8px 5px;
+}
+
+
+//horizontal
+.content-horizontal{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.img-wrapper{
+  min-height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 14px;
+}
+.my-store h6{
+  margin: 0px;
+  
+}
+.my-store ion-col{
+  text-align: center;
+}
+
+.cont-etiqueta{
+  display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+}
+.etiqueta-orden{
+  position: relative;
+  color: #fff;
+  font-size: small;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 3px 5px;
+  margin-bottom: 10px;
+  top: 10px;
+}
+.entregado{
+  background: #34A853;
+}
+.pendiente{
+  background: #EA4335;
+}
+
+.order-list hr{
+  border-top: 1px dashed grey;
+}
+.justify-content-end{
+  display: flex;
+  justify-content: flex-end;
+}
+.order-list ion-item{
+  --background: #f4f5f8;
+    border-radius: 40px;
+    padding: 10px 5px;
+}
+.space-between{
+  display: flex;
+  
+  justify-content: space-between;
+}

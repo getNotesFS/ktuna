@@ -1,15 +1,74 @@
 <app-header2 titulo="Hola Sebastián!"></app-header2>
 
 <ion-content class="ion-padding">
-   
-  <div class="container pg-dashboard">
-    
-    <ion-img class="logo-vertical" src="../../../assets/logo-vertical.png"></ion-img>
-    
- <!-- Default Searchbar -->
- <ion-searchbar></ion-searchbar>
-  </div>
 
- 
- 
+  <!-- HEAD -->
+  <div class="container pg-dashboard">
+
+    <ion-img class="logo-vertical" src="../../../assets/logo-vertical.png"></ion-img>
+
+    <!-- Search br -->
+    <ion-searchbar></ion-searchbar>
+  </div>
+  <!-- Options -->
+  <section class="ion-padding">
+    <ion-button size="small" class="naranja btn-txt-small">Ropa y Calzado</ion-button>
+    <ion-button size="small" class="marron btn-txt-small">Artesanía</ion-button>
+    <ion-button size="small" class="amarillo btn-txt-small">Alimentos</ion-button>
+    <ion-button size="small" class="azul btn-txt-small">Otros</ion-button>
+
+  </section>
+
+  <!-- TIopp -->
+  <section class="ion-padding top-tienda">
+
+    <header>
+      <h6>Tiendas Populares <span><a href="#">Ver todos</a></span></h6>
+    </header>
+    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }" class="slide-top-tienda">
+      <ion-slide *ngFor="let card of [0,1,2,3,4,5,6]" style="width: 150px; height: 200px; border: 2px solid #f8f8f8">
+
+        <ion-card>
+
+          <div class="img-cont">
+            <img src="../../../assets/avatar.jpg" />
+          </div>
+          <ion-card-header>
+            <ion-card-title>Pinturas Klm #{{ card }}</ion-card-title>
+          </ion-card-header>
+
+        </ion-card>
+
+
+      </ion-slide>
+    </ion-slides>
+  </section>
+
+<!-- TIopp 2-->
+<section class="ion-padding top-tienda">
+
+  <header>
+    <h6>Productos Populares <span><a href="#">Ver todos</a></span></h6>
+  </header>
+  <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }" class="slide-top-tienda">
+    <ion-slide *ngFor="let card of [0,1,2,3,4,5,6]" style="width: 150px; height: 200px; border: 2px solid #f8f8f8">
+
+      <ion-card>
+
+        <div class="img-cont">
+          <img src="../../../assets/avatar.jpg" />
+        </div>
+        <ion-card-header>
+          <h6>22,00$</h6>
+          <p>Ropa #{{ card }}</p>
+        </ion-card-header>
+
+      </ion-card>
+
+
+    </ion-slide>
+  </ion-slides>
+</section>
+
+
 </ion-content>

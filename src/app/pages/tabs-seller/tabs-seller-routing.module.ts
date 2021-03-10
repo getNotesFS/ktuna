@@ -6,7 +6,7 @@ import { TabsSellerPage } from './tabs-seller.page';
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'/tabs/inicio',
+    redirectTo:'/tabs-seller/dashboard',
     pathMatch:'full'
   },
   {
@@ -14,8 +14,29 @@ const routes: Routes = [
     component: TabsSellerPage,
     children:[
      {
-      path: 'inicio',
+      path: 'dashboard',
       loadChildren: () => import('../inicio/inicio.module').then( m => m.InicioPageModule)
+     }
+    ]
+  },
+  {
+    path: '',
+    component: TabsSellerPage,
+    children:[
+     {
+      path: 'my-store',
+      loadChildren: () => import('../my-store/my-store.module').then( m => m.MyStorePageModule)
+     }
+    ]
+  }
+  ,
+  {
+    path: '',
+    component: TabsSellerPage,
+    children:[
+     {
+      path: 'orders',
+      loadChildren: () => import('../orders/orders.module').then( m => m.OrdersPageModule)
      }
     ]
   }
