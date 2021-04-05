@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './interfaces/auth.guard';
 
 const routes: Routes = [
    
@@ -30,7 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'tabs-seller',
-    loadChildren: () => import('./pages/tabs-seller/tabs-seller.module').then( m => m.TabsSellerPageModule)
+    loadChildren: () => import('./pages/tabs-seller/tabs-seller.module').then( m => m.TabsSellerPageModule),
+    canActivate:[AuthGuard],
   },
   
   {
@@ -48,6 +50,14 @@ const routes: Routes = [
   {
     path: 'orders',
     loadChildren: () => import('./pages/orders/orders.module').then( m => m.OrdersPageModule)
+  },
+  {
+    path: 'verify-email',
+    loadChildren: () => import('./pages/verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
 ];
 

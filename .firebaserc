@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ktuna-41511": {
+      "hosting": {
+        "app": [
+          "ktuna-41511"
+        ]
+      }
+    }
+  }
+}

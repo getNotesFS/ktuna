@@ -1,17 +1,17 @@
 <ion-app>
   <ion-menu menuId="main-menu" contentId="main">
 
-    <ion-content>
+    <ion-content *ngIf="user$ | async as user">
       <div class="menu-header-bg"></div>
       <div class="header-content">
-        <img src="../assets/avatar.jpg" alt="">
+        <img *ngIf="user.photoURL" src="{{ user.photoURL }}" alt="">
         <ion-label>
-          <h2>Sebastián M.</h2>
-          <p>M-83</p>
+          <h2>{{ user.displayName}}</h2>
+          <p>{{ user.email}}</p>
         </ion-label>
       </div>
       <div class="action-button">
-        <ion-button>
+        <ion-button (click)="onSigninOut()">
 
           <ion-icon slot="end" name="log-out-outline"></ion-icon> Cerrar Sesión
 

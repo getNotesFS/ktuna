@@ -1,0 +1,41 @@
+<app-header titulo="Verificar Correo"></app-header>
+
+<ion-content class="my-background" *ngIf="user$ | async as user">
+  <section class="container">
+
+    <ion-grid>
+      <ion-row>
+
+
+        <ion-col>
+          <div class="ion-text-justify">
+            <h2 class="ion-text-center">Gracias por registrarte!</h2>
+            <p class="ion-padding">Por favor, revisa tu correo <strong>{{ user.email }}</strong> para verificar el correo y poder usar nuestros
+              servicios.</p>
+
+          </div>
+        </ion-col>
+
+      
+      </ion-row>
+      <ion-row>
+
+
+        <ion-col>
+          <div class="ion-text-center"> 
+            <ion-button size="small" type="submit" color="dark" (click)="onSendEmail()">
+              
+              <ion-label slot="start">Reenviar Correo</ion-label>
+              <ion-icon slot="end" name="mail-outline"></ion-icon>
+             </ion-button>
+            
+          </div>
+        </ion-col>
+
+      
+      </ion-row>
+
+    </ion-grid>
+  </section>
+
+</ion-content>

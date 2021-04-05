@@ -5,90 +5,90 @@
         <div class="content" class="ion-padding">
             <h4>Por favor, procura llenar correctamente los datos.</h4>
             <br>
+            <form>
+                <ion-list>
+                    <ion-label>
+                        Nombre y Apellido
+                    </ion-label>
+                    <ion-item>
+                        <ion-label>
+                            <ion-icon name="person-outline"></ion-icon>
+                        </ion-label>
+                        <ion-input placeholder="Martín Montero" type="text"></ion-input>
 
-            <ion-list>
-                <ion-label>
-                    Nombre y Apellido
-                </ion-label>
-                <ion-item>
+                    </ion-item>
+                    <br>
                     <ion-label>
-                        <ion-icon name="person-outline"></ion-icon>
+                        Correo
                     </ion-label>
-                    <ion-input placeholder="Martín Montero" type="text"></ion-input>
-
-                </ion-item>
-                <br>
-                <ion-label>
-                    Correo
-                </ion-label>
-                <ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </ion-label>
+                        <ion-input placeholder="martin@gmail.com" #email type="mail"></ion-input>
+                    </ion-item>
+                    <br>
                     <ion-label>
-                        <ion-icon name="mail-outline"></ion-icon>
+                        Contraseña
                     </ion-label>
-                    <ion-input placeholder="martin@gmail.com" type="mail"></ion-input>
-                </ion-item>
-                <br>
-                <ion-label>
-                    Contraseña
-                </ion-label>
-                <ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </ion-label>
+                        <ion-input placeholder="123456" #password type="password"></ion-input>
+                    </ion-item>
+                    <br>
                     <ion-label>
-                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        Cédula
                     </ion-label>
-                    <ion-input placeholder="123456" type="password"></ion-input>
-                </ion-item>
-                <br>
-                <ion-label>
-                    Cédula
-                </ion-label>
-                <ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <ion-icon name="id-card-outline"></ion-icon>
+                        </ion-label>
+                        <ion-input placeholder="1001234567" type="text"></ion-input>
+                    </ion-item>
+                    <br>
                     <ion-label>
-                        <ion-icon name="id-card-outline"></ion-icon>
+                        Va a vender:
                     </ion-label>
-                    <ion-input placeholder="1001234567" type="text"></ion-input>
-                </ion-item>
-                <br>
-                <ion-label>
-                    Va a vender:
-                </ion-label>
-                <ion-item>
-                    <ion-label>
-                        <ion-icon name="storefront-outline"></ion-icon> Selecciona opción
-                    </ion-label>
-                    <ion-select value="comida" okText="OK" cancelText="Cancelar">
-                        <ion-select-option value="comida">Comida</ion-select-option>
-                        <ion-select-option value="artesania">Artesanía</ion-select-option>
-                        <ion-select-option value="ropa">Ropa</ion-select-option>
-                        <ion-select-option value="otros">Otros</ion-select-option>
-                    </ion-select>
-                </ion-item>
-                <br>
-                <br>
-                <div class="btn-align-center">
-                    <ion-button color="dark" routerLink="/tabs-seller">>
-                        <ion-icon name="arrow-forward-outline"></ion-icon>
-                        <ion-label slot="start">Registrarse</ion-label>
-                    </ion-button>
-                </div>
-
-                <br>
-                <br>
-                <section class="justify-content-center">
-                    <p>También puedes registrarte con</p>
-                    <div class="btn-social">
-                        <ion-button color="dark" (click)="loginUser()">
-                            <ion-icon name="logo-google"></ion-icon>
-                        </ion-button>
-                        <ion-button color="dark" (click)="loginUser()">
-                            <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-item>
+                        <ion-label>
+                            <ion-icon name="storefront-outline"></ion-icon> Selecciona opción
+                        </ion-label>
+                        <ion-select value="comida" okText="OK" cancelText="Cancelar">
+                            <ion-select-option value="comida">Comida</ion-select-option>
+                            <ion-select-option value="artesania">Artesanía</ion-select-option>
+                            <ion-select-option value="ropa">Ropa</ion-select-option>
+                            <ion-select-option value="otros">Otros</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <br>
+                    <br>
+                    <div class="btn-align-center">
+                        <ion-button color="dark" type="submit" (click)="onRegister(email,password)" >
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                            <ion-label slot="start">Registrarse</ion-label>
                         </ion-button>
                     </div>
-                </section>
-                <section class="txt-log">
-                    <p>¿Ya tienes una cuenta? <b><a href="/log-in">Iniciar Sesión</a></b></p>
-                </section>
-            </ion-list>
 
+                    <br>
+                    <br>
+                    <section class="justify-content-center">
+                        <p>También puedes registrarte con</p>
+                        <div class="btn-social">
+                            <ion-button color="dark" (click)="loginUser()">
+                                <ion-icon name="logo-google"></ion-icon>
+                            </ion-button>
+                            <ion-button color="dark" (click)="loginUser()">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </ion-button>
+                        </div>
+                    </section>
+                    <section class="txt-log">
+                        <p>¿Ya tienes una cuenta? <b><a href="/log-in">Iniciar Sesión</a></b></p>
+                    </section>
+                </ion-list>
+            </form>
         </div>
 
     </section>
