@@ -49,6 +49,8 @@ export class AuthService {
   async loginGoogle(): Promise<any> {
     try {
       const  {user} = await this.afAuth.signInWithPopup(new firebase.default.auth.GoogleAuthProvider());
+      //TODO verificar existencia de usuario
+      
       this.updateUserData(user);
       return user;
      

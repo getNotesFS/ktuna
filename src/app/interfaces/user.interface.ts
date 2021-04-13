@@ -12,9 +12,3 @@ export interface User{
     emailVerified?:boolean;
     roles?: Roles;  
 }
-
-/*
-  
-    nameSurname:string;
-    ci:string;
-    typeProduct:string; */
