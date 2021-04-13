@@ -1,0 +1,109 @@
+<app-header2 titulo="Nuevo Producto"></app-header2>
+
+<ion-content class="my-background">
+  <section class="container">
+    <div class="content" class="ion-padding">
+      <h5>Por favor, procura llenar correctamente los datos.</h5>
+      <br>
+     
+        <ion-list>
+          <ion-item>
+            <ion-label class="normal">
+              Imagen:
+            </ion-label>
+            <ion-buttons slot="end">
+              <ion-button>
+                <label for="file-upload">
+                  <ion-icon slot="icon-only" name="images"></ion-icon>
+                </label>
+                <input (change)="newImageUpload($event)"  id="file-upload" style="display: none" type="file"
+                  accept="image/*">
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+          <br>
+          <br>
+          <ion-label>
+            Nombre
+          </ion-label>
+          <ion-item>
+            <ion-input placeholder="Chaqueta" [(ngModel)]="newProducto.nombre" type="text" inputmode="text"></ion-input>
+          </ion-item>
+          <br>
+          <ion-label>
+            Precio
+          </ion-label>
+          <ion-item>
+            <ion-input placeholder="2.15"  [(ngModel)]="newProducto.precio" type="number" inputmode="numeric"></ion-input>
+          </ion-item>
+          <br>
+          <ion-label>
+            Precio Descuento
+          </ion-label>
+          <ion-item>
+            <ion-input placeholder="2.15"  [(ngModel)]="newProducto.precioDescuento" type="number" inputmode="numeric"></ion-input>
+          </ion-item>
+
+          <br>
+          <ion-label>
+            Categoría:
+          </ion-label>
+          <ion-item>
+            <ion-select value="comida" [(ngModel)]="newProducto.categoria" okText="OK" cancelText="Cancelar">
+              <ion-select-option value="comida">Comida</ion-select-option>
+              <ion-select-option value="artesania">Artesanía</ion-select-option>
+              <ion-select-option value="ropa">Ropa</ion-select-option>
+              <ion-select-option value="otros">Otros</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <br>
+          <ion-label>
+            Descripción
+          </ion-label>
+          <ion-item>
+            <ion-textarea placeholder="Enter more information here..."  [(ngModel)]="newProducto.descripcion" inputmode="text"></ion-textarea>
+          </ion-item>
+          <br>
+          <br>
+
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col></ion-col>
+
+              <ion-col size="8">
+                <ion-button expand="block" color="dark"  (click)="guardarProducto()">
+                  <ion-icon slot="end" name="add-outline"></ion-icon>
+                  <ion-label slot="start">Agregar</ion-label>
+                </ion-button>
+                <ion-button expand="block" color="danger"  routerLink="/tabs-seller">
+                  <ion-label>Cancelar</ion-label>
+                </ion-button>
+
+              </ion-col>
+              <ion-col></ion-col>
+            </ion-row>
+          </ion-grid>
+          <br>
+          <br>
+
+        </ion-list>
+      
+        <br>
+        <h3 class="subtitulo encabezado">Lista de Productos</h3>
+       
+        <ion-item *ngFor="let producto of productos">
+          <ion-label class="normal"> {{producto.nombre}}</ion-label>
+          <ion-buttons slot="end">
+            <ion-button (click)=" newProducto =  producto; enableNewProducto = true; ">
+              <ion-icon slot="icon-only" name="create-sharp"></ion-icon>
+            </ion-button>
+            <ion-button (click)="deleteProducto(producto)">
+              <ion-icon slot="icon-only" color="danger" name="trash-bin"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+    </div>
+
+  </section>
+
+</ion-content>

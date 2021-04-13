@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 //FIREBASE
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireModule} from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 import {environment} from 'src/environments/environment';
 
 @NgModule({
@@ -17,7 +19,8 @@ import {environment} from 'src/environments/environment';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
   AngularFireModule.initializeApp(environment.firebaseConfig),
-  AngularFireAuthModule
+  AngularFireAuthModule,
+  AngularFireStorageModule
 ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

@@ -9,53 +9,71 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LogInPage implements OnInit {
 
-  constructor(private authSvc:AuthService, private router:Router) { }
+  constructor(private authSvc: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  async onLogin(email, password){
+  async onLogin(email, password) {
     try {
-      const user = await this.authSvc.login(email.value,password.value);
-      if(user){
+      const user = await this.authSvc.login(email.value, password.value);
+      if (user) {
         //Todo: check email verificado
         const isVerified = this.authSvc.isEmailVerified(user);
         this.redirectUser(isVerified);
-        console.log("VERIFICADO->",isVerified);
+        console.log("VERIFICADO->", isVerified);
       }
     } catch (error) {
-      console.log("Error->",error);
+      console.log("Error->", error);
     }
   }
 
 
-  async onLoginGoogle(){
+  async onLoginGoogle() {
     try {
       const user = await this.authSvc.loginGoogle();
-      if(user){
+      if (user) {
         //Todo: CheckEmail
-        console.log("User->",user);
-       // this.router.navigate(['verify-email']);
-        
+        console.log("User->", user);
+        // this.router.navigate(['verify-email']);
+
         const isVerified = this.authSvc.isEmailVerified(user);
         this.redirectUser(isVerified);
-        
+
       }
     } catch (error) {
-      console.log("Error->",error);
+      console.log("Error->", error);
+    }
+
+
+  }
+  async onLoginFacebook() {
+    try {
+      const user = await this.authSvc.loginFacebook();
+      if (user) {
+        //Todo: CheckEmail
+        console.log("user->", user);
+        // this.router.navigate(['verify-email']);
+
+        const isVerified = this.authSvc.isEmailVerified(user); 
+    
+        this.redirectUser(isVerified);
+
+      }
+    } catch (error) {
+      console.log("Error->", error);
     }
   }
 
-
-    //redirect user
-    private redirectUser(isVerified:boolean):void{
-      //redireect -> admin
-      //else verificationPage
-      if(isVerified){
-        this.router.navigate(['tabs-seller/dashboard']);
-      }else{
-        this.router.navigate(['verify-email']);
-      }
-  
+  //redirect user
+  private redirectUser(isVerified: boolean): void {
+    //redireect -> admin
+    //else verificationPage
+    if (isVerified) {
+      this.router.navigate(['tabs-seller/dashboard']);
+    } else {
+      this.router.navigate(['verify-email']);
     }
+
+  }
 }

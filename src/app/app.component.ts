@@ -10,7 +10,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  public user$: Observable<User> = this.authSvc.afAuth.user;
+  public user$: Observable<any> = this.authSvc.afAuth.user;
+
   constructor(private authSvc: AuthService, private router:Router, private menu: MenuController) { }
  
 

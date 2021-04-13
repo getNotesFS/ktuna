@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header2.component.scss'],
 })
 export class Header2Component implements OnInit {
-  public user$: Observable<User> = this.authSvc.afAuth.user;
+  public user$: Observable<any> = this.authSvc.afAuth.user;
 
   @Input() titulo: string = "";
   constructor(private authSvc: AuthService) { }

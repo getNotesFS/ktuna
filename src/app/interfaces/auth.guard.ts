@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
       map(user=>{
         console.log("User existe->",user);
 
-        if(user && user.emailVerified){
+        if(user && user.emailVerified && user.roles.cliente){
           return true;
         }else if(user && !user.emailVerified){
           this.router.navigate(['verify-email']);

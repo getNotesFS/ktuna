@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/interfaces/user.interface';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,9 +10,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./verify-email.page.scss'],
 })
 export class VerifyEmailPage implements OnInit {
-  public user$: Observable<User> = this.authSvc.afAuth.user;
-
-  constructor(private authSvc: AuthService) { }
+  public user$: Observable<any> = this.authSvc.afAuth.user;
+  //user:User;
+  constructor(private authSvc: AuthService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -19,6 +20,7 @@ export class VerifyEmailPage implements OnInit {
   async onSendEmail():Promise<void> {
     try {
       this.authSvc.sendVerificationEmail();
+      this.router.navigate(['log-in']);
     } catch (error) {
       console.log("Error->",error);
     }
