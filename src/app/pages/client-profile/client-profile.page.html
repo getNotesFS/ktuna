@@ -1,9 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>client-profile</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <div class="background">
+    <div class="center">
+    <ion-avatar class="avatarimg">
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
+    <h1>Hola Sebastián!</h1>
+    </div>
+    <section class="container">
+      <div class="ion-padding">
+        <ion-list lines="none" class="border">
+          <ion-item>
+            <ion-icon slot="start" name="list-outline"></ion-icon>
+            <ion-label><b>Historial de pedidos</b></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon slot="start" name="person"></ion-icon>
+            <ion-label><b>Tu información</b></ion-label>
+          </ion-item>
+        </ion-list>
+        
+        <ion-list lines="none">
+          <ion-item>
+            <ion-icon slot="start" name="pricetag-outline"></ion-icon>
+            <ion-label><b>Promociones</b></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon slot="start" name="chatbubble-ellipses-outline"></ion-icon>
+            <ion-label><b>Ayuda</b></ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </section>
+  </div>
 </ion-content>

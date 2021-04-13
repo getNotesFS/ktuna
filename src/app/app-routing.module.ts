@@ -44,6 +44,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/client-profile/client-profile.module').then( m => m.ClientProfilePageModule)
   },
   {
+    path: 'product',
+    loadChildren: () => import('./pages/product/product.module').then( m => m.ProductPageModule)
+  },
+  {
     path: 'my-store',
     loadChildren: () => import('./pages/my-store/my-store.module').then( m => m.MyStorePageModule)
   },
@@ -63,6 +67,10 @@ const routes: Routes = [
     path: 'new-product',
     loadChildren: () => import('./pages/new-product/new-product.module').then( m => m.NewProductPageModule)
   },
+  {
+    path: 'store',
+    loadChildren: () => import('./pages/store/store.module').then( m => m.StorePageModule)
+  }
 ];
 
 @NgModule({

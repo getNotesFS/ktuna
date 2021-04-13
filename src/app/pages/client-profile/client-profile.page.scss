@@ -1,0 +1,33 @@
+.avatarimg {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+.background {
+    background-color: #F2F2F2;
+}
+
+.container{
+    width: 100%;
+    position: relative;
+    min-height: -webkit-fill-available;
+    background: #fff!important;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+}
+
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.border {
+    border-bottom: 1px solid grey !important;
+}
