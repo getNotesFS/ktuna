@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+ 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbfirebaseService {
+
+  navData:any;
 
   constructor(public dbFirestore: AngularFirestore) { }
 
@@ -77,7 +80,16 @@ export class DbfirebaseService {
 
 
 
-
+  //navData
+  setNavData(navObj){
+    this.navData=navObj;
+  }
+  getNavData(){
+    if(!this.navData){
+      return 0;
+    }
+    return this.navData;
+  }
 
 
 

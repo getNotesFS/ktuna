@@ -4,9 +4,9 @@
     <ion-content *ngIf="user$ | async as user">
       <div class="menu-header-bg"></div>
       <div class="header-content">
-        <img *ngIf="user.photoURL" src="{{ user.photoURL }}" alt="">
+        <img *ngIf="usuario.photoURL" src="{{ usuario.photoURL }}" alt="">
         <ion-label>
-          <h2>{{ user.displayName}}</h2>
+          <h2>{{ usuario.displayName}}</h2>
           <p>{{ user.email}}</p>
         </ion-label>
       </div>
@@ -20,10 +20,10 @@
 
       </div>
       <ion-list class="menu-items" lines="none">
-        <ion-item> 
+        <ion-item class="active"> 
           <ion-icon name="home-outline"></ion-icon>Dashboard
         </ion-item>
-        <ion-item class="active"> 
+        <ion-item > 
           <ion-icon name="person-outline"></ion-icon>Perfil
         </ion-item>
       </ion-list>

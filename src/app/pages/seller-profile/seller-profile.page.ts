@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router'; 
+import { Observable } from 'rxjs';  
+import { User } from 'src/app/interfaces/user.interface';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-seller-profile',
   templateUrl: './seller-profile.page.html',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellerProfilePage implements OnInit {
 
-  constructor() { }
+  public user$: Observable<any> = this.authSvc.afAuth.user;
 
-  ngOnInit() {
+  constructor(private authSvc: AuthService, private router:Router) { }
+ 
+
+  ngOnInit(){ 
   }
 
 }

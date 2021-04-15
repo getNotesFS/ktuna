@@ -4,15 +4,17 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from 'src/app/interfaces/user.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
+  public user$: Observable<any> = this.authSvc.afAuth.user;
 
   user: User;
-  constructor(private afs: AngularFirestore, public auth: AuthService, private router: Router) { }
+  constructor(private afs: AngularFirestore, public authSvc: AuthService, private router: Router) { }
 
   ngOnInit() {
 /*

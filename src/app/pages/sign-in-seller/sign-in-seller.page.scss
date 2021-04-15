@@ -51,3 +51,64 @@ ion-button{
 .btn-social{ 
     width: 100%;
 }
+
+
+
+.uploadImageProduct{
+    display: none;
+  }
+  
+  .newImageContainer{
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  
+    img{
+      max-width: 120px;
+    }
+  }
+  .myImgTienda{
+    max-width: 80px;
+    padding: 10px;
+  }
+
+  .thisUploadImage{
+ 
+    --border-color:transparent!important;
+    --background: transparent!important;
+    margin-bottom: 15px;
+   
+  }
+  .myUploadIcon{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    margin-bottom: 15px;
+    ion-button{
+      width: 80px!important;
+      height: 80px!important;
+      ion-icon{
+        font-size: 50px!important;
+      }
+    }
+    ion-button::before{
+      content: "Seleccionar";
+      position: absolute;
+      font-size: 12px;
+      top: 80%;
+      display: flex;
+    }
+  }
+  
+  .closeIcon{
+    color: black;
+    --background: transparent!important;
+    --border-style: none !important;
+    --box-shadow: none !important;
+     
+     
+  }

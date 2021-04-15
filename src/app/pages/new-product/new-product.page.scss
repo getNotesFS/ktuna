@@ -45,3 +45,51 @@ input:focus + label {
   outline: 1px solid #000;
   outline: -webkit-focus-ring-color auto 2px;
 }
+
+.uploadImageProduct{
+  display: none;
+}
+
+.newImageContainer{
+  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  img{
+    max-width: 120px;
+  }
+}
+
+.myUploadIcon{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  margin-bottom: 15px;
+  ion-button{
+    width: 80px!important;
+    height: 80px!important;
+    ion-icon{
+      font-size: 50px!important;
+    }
+  }
+  ion-button::before{
+    content: "Seleccionar";
+    position: absolute;
+    font-size: 12px;
+    top: 80%;
+    display: flex;
+  }
+}
+
+.closeIcon{
+  color: black;
+  --background: transparent!important;
+  --border-style: none !important;
+  --box-shadow: none !important;
+   
+   
+}

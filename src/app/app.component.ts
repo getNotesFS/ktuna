@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { Observable } from 'rxjs';
+import { AuthService } from './services/auth.service';
 import { User } from 'src/app/interfaces/user.interface';
-import { AuthService } from 'src/app/services/auth.service';
+import { DbfirebaseService } from './services/dbfirebase.service';
+import { map, take } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -12,13 +14,48 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AppComponent {
   public user$: Observable<any> = this.authSvc.afAuth.user;
 
-  constructor(private authSvc: AuthService, private router:Router, private menu: MenuController) { }
- 
+  usuario: User;
+  anyu: any;
+  constructor(private authSvc: AuthService, private firestoreService: DbfirebaseService, private router: Router, private menu: MenuController) {
 
-  onSigninOut(){
-    this.authSvc.logout();
-    this.menu.close();
+    const path = 'users';
+    this.user$.subscribe(auth => {
+      console.log('datosCliente ->', auth.uid);
+       
+      this.firestoreService.getDoc<User>(path, auth.uid).subscribe(res => {
+        if (res !== undefined) {
+          this.usuario = res;
+          console.log('datosCliente ->' , this.usuario);
+        }
+  
+      });
+    });
 
-    this.router.navigate(['log-in']);
+
+  
   }
+  ngOnInit() {
+    //this.getProductos(); 
+  }
+
+  onSigninOut() {
+    this.authSvc.logout();
+    this.menu.close(); 
+    this.router.navigate(['/log-in']); 
+     
+  }
+
+  getTienda(tiendaID: string) {
+    console.log("My product id is: ", this.anyu);
+    const path = 'users';
+    this.firestoreService.getDoc<User>(path, tiendaID).subscribe(res => {
+      if (res !== undefined) {
+        this.usuario = res;
+        console.log('datosCliente ->', this.usuario);
+      }
+
+    });
+
+  }
+
 }

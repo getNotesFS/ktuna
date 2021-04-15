@@ -10,6 +10,7 @@ import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firest
 import { Observable, of } from 'rxjs';
 import { switchMap } from "rxjs/operators";
 import { Router } from '@angular/router';
+import { DbfirebaseService } from './dbfirebase.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,10 @@ export class AuthService {
 
   //observable
   public user$: Observable<User>;
+  cUser: User;
+  myUID:string;
 
-  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) {
+  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router, private dbfirebase: DbfirebaseService) {
 
     //get auth data
     this.user$ = this.afAuth.authState.pipe(
@@ -48,32 +51,18 @@ export class AuthService {
 
   async loginGoogle(): Promise<any> {
     try {
-      const  {user} = await this.afAuth.signInWithPopup(new firebase.default.auth.GoogleAuthProvider());
+      const { user } = await this.afAuth.signInWithPopup(new firebase.default.auth.GoogleAuthProvider());
       //TODO verificar existencia de usuario
-      
+
       this.updateUserData(user);
       return user;
-     
+
 
     } catch (error) {
       console.log('Error->', error);
     }
   }
 
-/*
-  loginGoogle() {
-    const provider = new firebase.default.auth.GoogleAuthProvider();
-    return this.oAuthLogin(provider);
-
-  }
-
-  private oAuthLogin(provider) {
-    return this.afAuth.signInWithPopup(provider)
-      .then((credential) => {
-        this.updateUserData(credential.user)
-      })
-  }
-  */
 
   async loginFacebook(): Promise<any> {
     try {
@@ -98,7 +87,7 @@ export class AuthService {
   async login(email: string, password: string): Promise<any> {
     try {
       const { user } = await this.afAuth.signInWithEmailAndPassword(email, password);
-      this.updateUserData(user);
+      this.updateUserDataVendedor(user);
       return user;
 
     } catch (error) {
@@ -121,7 +110,7 @@ export class AuthService {
   }
 
   //is cliente
-  isCliente(user: User):boolean {
+  isCliente(user: User): boolean {
     const allowed = ['cliente'];
     return this.checkAuthorization(user, allowed);
 
@@ -147,6 +136,30 @@ export class AuthService {
       emailVerified: user.emailVerified,
       displayName: user.displayName,
       photoURL: user.photoURL,
+      ci: '',
+      roles: {
+        cliente: true
+      },
+      tienda: {
+        nombre: '',
+        photoURL: '',
+        productoVenta: '',
+        descripcion: '',
+        direccion: '',
+        telefono: ''
+      }
+    };
+
+    return userRef.set(data, { merge: true });
+  }
+
+  private updateUserDataVendedor(user) {
+    //set datya to firestore on login
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+    const data: User = {
+      uid: user.uid,
+      email: user.email,
+      emailVerified: user.emailVerified,
       roles: {
         cliente: true
       }
@@ -155,8 +168,48 @@ export class AuthService {
     return userRef.set(data, { merge: true });
   }
 
-  
 
+  //status user
+  async getUid() {
+    const user = await this.afAuth.currentUser;
+    if (user === null) {
+      return null;
+    } else {
+      return user.uid;
+    }
+  }
+
+  stateAuth() {
+    return this.afAuth.authState;
+  }
+
+  async getInfoUser() {
+    const uid = await this.getUid();
+    const path = 'users';
+    this.dbfirebase.getDoc<User>(path, uid).subscribe(res => {
+      if (res !== undefined) {
+        this.cUser = res;
+        // console.log('datosCliente ->' , this.datosCliente);
+      }
+    });
+  }
+
+  async getInfoUserUID() {
+    const uid = await this.getUid();
+    const path = 'users';
+    this.dbfirebase.getDoc<User>(path, uid).subscribe(res => {
+      if (res !== undefined) {
+        this.myUID = res.uid;
+        // console.log('datosCliente ->' , this.datosCliente);
+      }
+    });
+  }
+  getUser() {
+    // Return the observable. DO NOT subscribe here.
+    return this.afAuth.user;
+    // Hint: you could also transform the value before returning it:
+    // return this.af.auth.map(authData => new User({name: authData.name}));
+  }
 
   //ability methods
   canRead(user: User): boolean {
@@ -175,7 +228,7 @@ export class AuthService {
 
   }
 
-   
+
   //check user matching role
   private checkAuthorization(user: User, allowedRoles: string[]): boolean {
     if (!user) {

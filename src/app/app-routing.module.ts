@@ -70,7 +70,11 @@ const routes: Routes = [
   {
     path: 'store',
     loadChildren: () => import('./pages/store/store.module').then( m => m.StorePageModule)
+  },  {
+    path: 'tabs-client',
+    loadChildren: () => import('./pages/tabs-client/tabs-client.module').then( m => m.TabsClientPageModule)
   }
+
 ];
 
 @NgModule({

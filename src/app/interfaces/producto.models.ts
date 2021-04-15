@@ -10,6 +10,9 @@ export interface Producto {
     photoURL: string;
     categoria: string;  
     id:string;
+    idTienda:string;
+    totalCompras:number;
+    cantidad:number;
     fecha: Date;
 }
 

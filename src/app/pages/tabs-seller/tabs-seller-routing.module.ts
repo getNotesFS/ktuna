@@ -51,6 +51,38 @@ const routes: Routes = [
      }
     ]
   }
+  ,
+  {
+    path: '',
+    component: TabsSellerPage,
+    children:[
+     {
+      path: 'product',
+      loadChildren: () => import('../product/product.module').then( m => m.ProductPageModule)
+     }
+    ]
+  },
+  {
+    path: '',
+    component: TabsSellerPage,
+    children:[
+     {
+      path: 'store',
+      loadChildren: () => import('../store/store.module').then( m => m.StorePageModule)
+     }
+    ]
+  }
+  ,
+  {
+    path: '',
+    component: TabsSellerPage,
+    children:[
+     {
+      path: 'profile-seller',
+      loadChildren: () => import('../seller-profile/seller-profile.module').then( m => m.SellerProfilePageModule)
+     }
+    ]
+  }
 ];
 
 @NgModule({

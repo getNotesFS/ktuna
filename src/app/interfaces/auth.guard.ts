@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
     return this.authSvc.user$.pipe(
       take(1),
       map(user=>{
-        console.log("User existe->",user);
+       // console.log("User existe->",user);
 
         if(user && user.emailVerified && user.roles.cliente){
           return true;

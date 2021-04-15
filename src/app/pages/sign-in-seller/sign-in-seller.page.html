@@ -5,90 +5,141 @@
         <div class="content" class="ion-padding">
             <h4>Por favor, procura llenar correctamente los datos.</h4>
             <br>
-            <form>
-                <ion-list>
-                    <ion-label>
-                        Nombre y Apellido
-                    </ion-label>
-                    <ion-item>
-                        <ion-label>
-                            <ion-icon name="person-outline"></ion-icon>
-                        </ion-label>
-                        <ion-input placeholder="Martín Montero" type="text"></ion-input>
 
-                    </ion-item>
+            <ion-list>
+                <div class="newImageContainer">
+                    <img class="image" [src]="vendedor.photoURL">
+                </div>
+                <ion-item class="thisUploadImage">
+                    <ion-buttons class="myUploadIcon" style="--background:transparent!important">
+                        <ion-button>
+                            <label for="file-upload">
+                                <ion-icon slot="icon-only" name="images"></ion-icon>
+                            </label>
+                            <input (change)="newImageUpload($event)" id="file-upload" class="uploadImageProduct"
+                                type="file" accept="image/*">
+                        </ion-button>
+                    </ion-buttons>
+
                     <br>
+
+                </ion-item>
+
+                <ion-label>
+                    Nombre y Apellido
+                </ion-label>
+                <ion-item>
                     <ion-label>
-                        Correo
+                        <ion-icon name="person-outline"></ion-icon>
                     </ion-label>
-                    <ion-item>
-                        <ion-label>
-                            <ion-icon name="mail-outline"></ion-icon>
-                        </ion-label>
-                        <ion-input placeholder="martin@gmail.com" #email type="mail"></ion-input>
-                    </ion-item>
-                    <br>
+                    <ion-input placeholder="Martín Montero" [(ngModel)]="vendedor.displayName" type="text"
+                        inputmode="text"></ion-input>
+
+                </ion-item>
+                <br>
+                <ion-label>
+                    Correo
+                </ion-label>
+                <ion-item>
                     <ion-label>
-                        Contraseña
+                        <ion-icon name="mail-outline"></ion-icon>
                     </ion-label>
-                    <ion-item>
-                        <ion-label>
-                            <ion-icon name="lock-closed-outline"></ion-icon>
-                        </ion-label>
-                        <ion-input placeholder="123456" #password type="password"></ion-input>
-                    </ion-item>
-                    <br>
+                    <ion-input placeholder="martin@gmail.com" [(ngModel)]="vendedor.email" type="mail"></ion-input>
+                </ion-item>
+                <br>
+                <ion-label>
+                    Contraseña
+                </ion-label>
+                <ion-item>
                     <ion-label>
-                        Cédula
+                        <ion-icon name="lock-closed-outline"></ion-icon>
                     </ion-label>
-                    <ion-item>
-                        <ion-label>
-                            <ion-icon name="id-card-outline"></ion-icon>
-                        </ion-label>
-                        <ion-input placeholder="1001234567" type="text"></ion-input>
-                    </ion-item>
-                    <br>
+                    <ion-input placeholder="123456" [(ngModel)]="password" type="password"></ion-input>
+                </ion-item>
+                <br>
+                <ion-label>
+                    Cédula
+                </ion-label>
+                <ion-item>
                     <ion-label>
-                        Va a vender:
+                        <ion-icon name="id-card-outline"></ion-icon>
                     </ion-label>
-                    <ion-item>
-                        <ion-label>
-                            <ion-icon name="storefront-outline"></ion-icon> Selecciona opción
-                        </ion-label>
-                        <ion-select value="comida" okText="OK" cancelText="Cancelar">
-                            <ion-select-option value="comida">Comida</ion-select-option>
-                            <ion-select-option value="artesania">Artesanía</ion-select-option>
-                            <ion-select-option value="ropa">Ropa</ion-select-option>
-                            <ion-select-option value="otros">Otros</ion-select-option>
-                        </ion-select>
-                    </ion-item>
-                    <br>
-                    <br>
-                    <div class="btn-align-center">
-                        <ion-button color="dark" type="submit" (click)="onRegister(email,password)" >
-                            <ion-icon name="arrow-forward-outline"></ion-icon>
-                            <ion-label slot="start">Registrarse</ion-label>
+                    <ion-input placeholder="1001234567" [(ngModel)]="vendedor.ci" inputmode="text" type="text">
+                    </ion-input>
+                </ion-item>
+                <br>
+
+                <ion-label>
+                    Nombre de tienda
+                </ion-label>
+                <ion-item>
+                    <ion-label>
+                        <ion-icon name="store-outline"></ion-icon>
+                    </ion-label>
+                    <ion-input placeholder="Lutus" [(ngModel)]="vendedor.tienda.nombre" inputmode="text" type="text">
+                    </ion-input>
+                </ion-item>
+                <br>
+
+              
+                <ion-label>
+                    Logo de tienda
+                </ion-label>
+                <ion-item>
+                    <ion-buttons slot="end">
+                        <ion-button>
+                            <label for="file-upload2">
+                                <ion-icon slot="icon-only" name="images"></ion-icon>
+                            </label>
+                            <input (change)="newImageUpload2($event)" id="file-upload2" style="display: none" type="file"
+                                accept="image/*">
+                        </ion-button>
+                    </ion-buttons>
+                    <img class="image"  [src]="vendedor.tienda.photoURL"class="myImgTienda">
+                </ion-item>
+                <br>
+                <ion-label>
+                    Va a vender:
+                </ion-label>
+                <ion-item>
+                    <ion-label>
+                        <ion-icon name="storefront-outline"></ion-icon> Selecciona opción
+                    </ion-label>
+                    <ion-select value="comida" [(ngModel)]="vendedor.tienda.productoVenta" okText="OK"
+                        cancelText="Cancelar">
+                        <ion-select-option value="comida">Comida</ion-select-option>
+                        <ion-select-option value="artesania">Artesanía</ion-select-option>
+                        <ion-select-option value="ropa">Ropa</ion-select-option>
+                        <ion-select-option value="otros">Otros</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <br>
+                <br>
+                <div class="btn-align-center">
+                    <ion-button color="dark" type="submit" (click)="onRegister()">
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                        <ion-label slot="start">Registrarse</ion-label>
+                    </ion-button>
+                </div>
+
+                <br>
+                <br>
+                <section class="justify-content-center">
+                    <p>También puedes registrarte con</p>
+                    <div class="btn-social">
+                        <ion-button color="dark" (click)="loginUser()">
+                            <ion-icon name="logo-google"></ion-icon>
+                        </ion-button>
+                        <ion-button color="dark" (click)="loginUser()">
+                            <ion-icon name="logo-facebook"></ion-icon>
                         </ion-button>
                     </div>
+                </section>
+                <section class="txt-log">
+                    <p>¿Ya tienes una cuenta? <b><a href="/log-in">Iniciar Sesión</a></b></p>
+                </section>
+            </ion-list>
 
-                    <br>
-                    <br>
-                    <section class="justify-content-center">
-                        <p>También puedes registrarte con</p>
-                        <div class="btn-social">
-                            <ion-button color="dark" (click)="loginUser()">
-                                <ion-icon name="logo-google"></ion-icon>
-                            </ion-button>
-                            <ion-button color="dark" (click)="loginUser()">
-                                <ion-icon name="logo-facebook"></ion-icon>
-                            </ion-button>
-                        </div>
-                    </section>
-                    <section class="txt-log">
-                        <p>¿Ya tienes una cuenta? <b><a href="/log-in">Iniciar Sesión</a></b></p>
-                    </section>
-                </ion-list>
-            </form>
         </div>
 
     </section>

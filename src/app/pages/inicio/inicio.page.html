@@ -1,11 +1,11 @@
-<app-header2 titulo="Hola Sebastián!"></app-header2>
+<app-header2 titulo="Bienvenido!"></app-header2>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" *ngIf="user$ | async as user" >
 
   <!-- HEAD -->
   <div class="container pg-dashboard">
 
-    <ion-img class="logo-vertical" src="../../../assets/logo-vertical.png"></ion-img>
+    <ion-img class="logo-vertical" src="./assets/logo-vertical.png"></ion-img>
 
     <!-- Search br -->
     <ion-searchbar></ion-searchbar>

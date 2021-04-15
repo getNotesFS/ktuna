@@ -1,13 +1,16 @@
-<ion-content>
+ 
+<ion-content *ngIf="user$ | async as user" >
   <div class="background">
     <div class="center">
-    <ion-avatar class="avatarimg">
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-    </ion-avatar>
-    <h1>Hola Sebastián!</h1>
+      <ion-avatar class="avatarimg">
+        <img [src]="user.photoURL">
+      </ion-avatar><br>
+      <h5>Hola {{ user.displayName }}!</h5>
     </div>
-    <section class="container">
+    <section class="container" >
       <div class="ion-padding">
+
+
         <ion-list lines="none" class="border">
           <ion-item>
             <ion-icon slot="start" name="list-outline"></ion-icon>
@@ -22,7 +25,7 @@
             <ion-label><b>Tu información</b></ion-label>
           </ion-item>
         </ion-list>
-        
+
         <ion-list lines="none">
           <ion-item>
             <ion-icon slot="start" name="pricetag-outline"></ion-icon>
